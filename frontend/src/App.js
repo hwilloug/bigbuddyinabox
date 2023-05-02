@@ -58,7 +58,8 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
+      <header>
+        <h1>BuddyInABox.com</h1>
       </header>
       <main>
         <PhotoAlbum 

@@ -1,4 +1,5 @@
-main {
+.App {
     background-color: darkslategrey;
+    color: white;
     padding: 30px;
 }
