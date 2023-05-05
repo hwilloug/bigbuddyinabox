@@ -59,7 +59,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>BuddyInABox.com</h1>
+        <h1>BigBuddyInABox.com</h1>
       </header>
       <main>
         <PhotoAlbum 
