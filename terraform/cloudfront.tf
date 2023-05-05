@@ -64,10 +64,6 @@ resource "aws_cloudfront_distribution" "cf_distribution" {
 
   price_class = "PriceClass_100"
 
-  viewer_certificate {
-    cloudfront_default_certificate = true
-  }
-
   retain_on_delete = true
 
   custom_error_response {
@@ -88,5 +84,20 @@ resource "aws_cloudfront_distribution" "cf_distribution" {
     geo_restriction {
       restriction_type = "none"
     }
+  }
+
+  aliases = ["bigbuddyinabox.com"]
+  viewer_certificate {
+    acm_certificate_arn = aws_acm_certificate.cert.arn
+    ssl_support_method  = "sni-only"
+  }
+}
+
+resource "aws_acm_certificate" "cert" {
+  domain_name       = "bigbuddyinabox.com"
+  validation_method = "DNS"
+
+  lifecycle {
+    create_before_destroy = true
   }
 }
